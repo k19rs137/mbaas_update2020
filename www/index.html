@@ -63,6 +63,22 @@ $("#display").html("delete fail:" + JSON.stringify(error));
 })
     }
     function updateData() {
+      UTdata.fetch()
+.then(function(uTdata){
+let value = parseInt($("#update").val());
+uTdata.set(key, value);
+return uTdata.update();
+})
+.then(function(results){
+$("#display").removeClass();
+$("#display").addClass("bg-success");
+$("#display").html("update success");
+})
+.catch(function(error){
+$("#display").removeClass();
+$("#display").addClass("bg-warning");
+$("#display").html("update fail:" + JSON.stringify(error));
+})
     }
     function countData() {
     }
